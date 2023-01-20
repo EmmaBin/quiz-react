@@ -5,6 +5,7 @@
 body{
   background-color: #F5F7FB;
 }
+/* welcome component  */
 .welcome--container{
   display: flex;
   flex-direction: column;
@@ -38,4 +39,7 @@ h4{
   font-size: 1.2rem;
   font-family: 'Karla', sans-serif;
   color:#F5F7FB;
+}
+.welcome--btn:hover{
+  filter: brightness(80%)
 }
