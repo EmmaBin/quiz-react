@@ -6,11 +6,18 @@ export default function Question(props){
     // set initial state as a callback function will help me achieve this effect
     const [answers, setAnswers] = useState(()=> setAllAnswers(props.correctAnswer, props.incorrectAnswers))
 
+    function decodeHtml(question) {
+        var txt = document.createElement('textarea');
+        txt.innerHTML = question;
+        return txt.value;
+      }
+
     function setAllAnswers(correctAnswer, incorrectAnswers){
         const randomPosition = Math.floor(Math.random()*3)
-        console.log(randomPosition)
-        let answerList = incorrectAnswers
-        console.log(answerList)
+        correctAnswer = decodeHtml(correctAnswer)
+
+        let answerList = incorrectAnswers.map(answer => decodeHtml(answer))
+      
         answerList.splice(randomPosition, 0, correctAnswer)
 
         return answerList
@@ -18,7 +25,8 @@ export default function Question(props){
     }
     return(
         <div className='question-container'>
-            <h2 className='question'>{props.question}</h2>
+            {/*'company&#039;s logo is the &#039;' HTML entities displayed on the screen, decode function will help*/}
+            <h2 className='question'>{decodeHtml(props.question)}</h2>
             <h5 className='answers'>{answers}</h5>
         </div>
     )
