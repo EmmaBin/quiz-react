@@ -1,22 +1,19 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
 import Welcome from './components/Welcome'
 import Quiz from './components/Quiz'
 
 function App() {
-  const [display, setDisplay] = useState(true)
+  const [displayWelcome, setDisplay] = useState(true)
 
   function handleClick(){
-    setDisplay(prev => !prev)
+    setDisplay(false)
   }
 
   return (
     <div className="App">
-      {display ? <Welcome handleClick={handleClick}/> :  <Quiz />}
-      
-      
-      
+      {/* conditional rendering different components */}
+      {displayWelcome ? <Welcome handleClick={handleClick}/> :  <Quiz />}
     </div>
   )
 }
