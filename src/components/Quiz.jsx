@@ -16,6 +16,9 @@ export default function Quiz(){
 
     const [questions, setQuestions] = useState([]) 
     const [answers, setAnswers] = useState([])
+    const [showScore, setShowScore]= useState(false)
+    const readyToScore= answers.filter(answer => typeof answer!= 'undefined').length === questions.length 
+    let correctAnswer = 0
 
     function handleQuestionClick(questionStr, answerStr){
         //create a answer array copy with the new answer every time, so react will rerender 
@@ -42,6 +45,17 @@ export default function Quiz(){
         )  
     },[])
 
+
+    function checkScore(){
+        
+        for (let i; i<answers.length; i++){
+            if (answers[i]===questions[i].correct_answer){
+                correctAnswer++
+            }
+        }
+        return correctAnswer
+        
+    }
     return(
         <div className='quiz-component'>
         <div className='quiz--page'>
@@ -56,7 +70,11 @@ export default function Quiz(){
         )}
 
         <div className='check--container'>
-        <button className='score--btn'>Check answers</button>
+            
+        {!showScore && <button className='score--btn' onClick={() =>setShowScore(true)} disabled={!readyToScore}>Check answers</button>}
+        {showScore && `You scored ${correctAnswer}/5 correct answers`}
+        {showScore && <button className='new-game-btn'>Start new game</button>}
+       
         </div>
         
         </div>

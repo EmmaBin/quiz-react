@@ -80,7 +80,7 @@ h4{
   text-align: center;
   border: none;
 }
-.score--btn{
+.score--btn[disabled]{
   background-color: #4D5B9E;
   width: 12rem;
   border: none;
@@ -88,4 +88,26 @@ h4{
   border-radius: 8px;
   color:white;
   cursor: pointer;
+}
+
+.score--btn{
+  background-color: #94D7A2;
+  width: 12rem;
+  border: none;
+  height: 3.5rem;
+  border-radius: 8px;
+  color:white;
+  cursor: pointer;
+}
+
+.new-game-btn{
+  background-color: #4D5B9E;
+  width: 15rem;
+  border: none;
+  height: 3.5rem;
+  border-radius: 8px;
+  color:white;
+  cursor: pointer;
+  margin-left: 10px;
+
 }
