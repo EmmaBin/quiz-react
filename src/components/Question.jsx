@@ -21,11 +21,16 @@ export default function Question(props){
         return answerList
     }
 
+
     return(
         <div className='question-container'>
             {/*'company&#039;s logo is the &#039;' HTML entities displayed on the screen, decode function will help*/}
             <h2 className='question'>{decodeHtml(props.question)}</h2>
-            {answers.map(answer => <button className='answer--btn' id={props.id}>{answer}</button>)}
+            {answers.map(answer => <button className='answer--btn' 
+                                           onClick = {() => props.handleClick(props.question, answer)}
+                                           key= {answer}
+                                        
+                                           >{answer}</button>)}
             <br></br>
         </div>
     )

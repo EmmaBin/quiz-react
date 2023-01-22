@@ -50,7 +50,7 @@ h4{
   font-family: 'Karla', sans-serif;
   font-style: bold;
   font-weight: 700;
-  font-size: 1.2rem;
+  font-size: 1rem;
   line-height: 25px;
   color:#293264;
   letter-spacing: -1px;
@@ -71,6 +71,7 @@ h4{
   font-weight: 500;
   line-height: 12px;
   padding: 10px;
+  cursor: pointer;
 }
 
 
