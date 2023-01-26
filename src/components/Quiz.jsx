@@ -65,8 +65,8 @@ export default function Quiz(){
     function startNewGame(){
         setNewGame(pre => !pre)
         setShowScore(false)
-        readyToScore = false
-        console.log(readyToScore)
+        setAnswers([])
+       
 
     }
     return(
