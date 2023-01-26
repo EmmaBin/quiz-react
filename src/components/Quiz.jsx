@@ -21,7 +21,7 @@ export default function Quiz(){
     //show the reveal score btn
     const [newGame, setNewGame] = useState(false)
     let readyToScore= answers.filter(answer => typeof answer!= 'undefined').length === questions.length 
-    // const [clickColor, setClickColor] = useState(false)
+    
     
 
     function handleQuestionClick(questionStr, answerStr){
@@ -33,6 +33,7 @@ export default function Quiz(){
         ]
       
         const questionIndex = questions.findIndex((question)=> question.question === questionStr)
+        //answerCopy array 
         answerCopy[questionIndex] = answerStr
         console.log(answers)
         return(
@@ -66,8 +67,6 @@ export default function Quiz(){
         setNewGame(pre => !pre)
         setShowScore(false)
         setAnswers([])
-       
-
     }
     return(
         <div className='quiz-component'>
@@ -77,8 +76,10 @@ export default function Quiz(){
                     key={result.question}
                     incorrectAnswers={result.incorrect_answers}
                     correctAnswer={result.correct_answer} 
-                    // selectedAnswer={/* answer string  from `answers` */}
+                    // answer arr 里存了所有的选择的str
+                    selectedAnswer={answers[index]}
                     handleClick={handleQuestionClick}
+                    showScore={showScore}
                     
                     
                     />
@@ -86,7 +87,7 @@ export default function Quiz(){
 
         <div className='check--container'>
         
-            
+        {/* if setShowScore is true, change the background color for all correct answer */}
         {!showScore && <button className='score--btn' onClick={() =>setShowScore(true)} disabled={!readyToScore}>Check answers</button>}
         
         {showScore && `You scored ${checkScore()}/5 correct answers`}
