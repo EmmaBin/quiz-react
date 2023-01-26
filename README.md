@@ -1,5 +1,5 @@
 # Quiz in _React_
-## Play the game @ https://lambent-starlight-872cbf.netlify.app/
+## Play the game @ https://endearing-peony-63758b.netlify.app/
 ### Features
 - Using Quizzical Trivia API
 - useState()
