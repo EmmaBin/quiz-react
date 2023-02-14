@@ -1,7 +1,7 @@
 import React from 'react'
 
-export default function Welcome(props){
-    return(
+export default function Welcome(props) {
+    return (
         <div className='welcome--container'>
             <h1 className='welcome--title'>
                 Quizzical
